@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<section>
+<div class="container" style="padding-top: 5rem;">
+  <div class="card mb-3" style="padding: 5rem;">
+    <img src="<%= recipe.imageLink %>" alt="Recipe Image" style="max-width: fit-content;">
+    <div class="card-body">
+      <h5 class="card-title"><%= recipe.title %></h5>
+      <p class="card-text">Ingredients: <br>
+      <ul>
+        <% const foundIngredients=recipe.ingredients.split(',') %>
+          <% for( let i=0; i < foundIngredients.length; i++ ) { %>
+            <li>
+              <%= foundIngredients[i] %>
+            </li>
+            <% } %>
+      </ul>
+      </p>
+      <p class="card-text">
+        Directions: <br> <br>
+        <%= recipe.description %>
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+  <%- include('partials/footer') %>

@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+<section id="contact">
+    <div class="contact-FAQs">
+<div class="container">
+    <h4 class="card-header">
+        Before contacting us, check our frequently asked questions section to see if we've already answered your question. You may find the information you need there, and it can save you time waiting for a response from us.
+    </h4>
+    
+    <div class="card">
+        <p class="h2">
+            FAQs
+        </p>
+    </div>
+    <div class="card">
+        <p class="card-text">
+        Q: How do I create an account on RecipeShare? <br> A: Creating an account is easy! Just click the "Sign Up" button at the top of the page and follow the instructions to create a username and password.
+        </p>
+    </div>
+    <div class="card">
+        <p class="card-text">
+            Q: Can I share my own recipes on RecipeShare? <br>
+            A: Yes, absolutely! We encourage our members to share their own recipes and to try out new recipes posted by other members.
+        </p>
+        
+    </div>
+    <div class="card">
+        <p class="card-text">
+            Q: Can I edit or delete a recipe I've posted?
+            <br>A: Yes, you can edit or delete your own recipes at any time by going to your profile and selecting the recipe you want to edit or delete.
+        </p>
+    </div>
+    <div class="card">
+        <p class="card-text">
+        Q: How can I share a recipe on social media?
+        <br>A: To share a recipe on social media, just click on the social media icons on the recipe page. You can share the recipe on Facebook, Twitter, Pinterest, and more.
+        </p>
+    </div>
+    </div>
+    </div>
+<div class="container">
+    <div class="card card-body-contact" style="background-color: #F5F5F5;">
+    <div class="card form-card" style="width: 40vw;">
+        <div class="container">
+            <h4 class="text-center">contact us for more information</h4>
+        <form action="/contact" method="post">
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-3">
+            <textarea name="formText" id="formText" cols="30" rows="10" class="form-control" placeholder="Write Your Message Here"></textarea >
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 99%;">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<%- include('partials/footer') %>

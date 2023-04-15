@@ -1,0 +1,162 @@
+.container-fluid{
+    width: 90%;
+}
+
+nav .btn {
+    margin-left: 1rem;
+}
+
+.hero-body{
+    height: 75vh;
+    width: 89%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding-top: 20rem;
+    background-image: url("../images/heroimage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-content{
+    background-color: rgba(0, 0, 0, 0.635);
+    width: 80%;
+    height: 20rem;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.hero-content-text{
+    color: white;;
+}
+
+main .text-wrap {
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.about-section{
+    height: 170vh;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding-top: 20rem;
+    background-image: url("../images/Group\ 4.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+footer{
+    height: 40vh;
+    width: 100%;
+    background-color: #E6EBEF;
+}
+
+
+.right i{
+font-size: 50px;
+color: #1685F0;
+}
+
+footer ul{
+    list-style-type: none;
+}
+
+.left i{
+    font-size: 25px;
+    margin-right: 10px;
+    color: #C49844;
+}
+
+.right i:hover{
+    color: #C49844;
+}
+
+.right, .left, .center{
+    margin-top: 5rem;
+}
+
+.left{
+    margin-left: 10rem;
+}
+
+.left a{
+    color: #011d37;
+}
+
+.left-ul{
+    text-decoration: none;
+}
+
+.right{
+    margin-right: 10rem;
+}
+
+.copy{
+    margin-top: 4rem;
+    padding-top: .5rem;
+    background-color: #1685F0;
+    width: 100%;
+    height: 2.5rem;
+    color: white;;
+}
+
+.about-main .card{
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.about-main .card-img-top{
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.about-main{
+    margin-top: 5rem;
+}
+
+#contact{
+    margin-top: 5rem;
+}
+
+#contact .card-text{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.form-card{
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    padding: 4rem;
+    
+}
+
+.contact-FAQs .card-header{
+    padding: 2rem;
+}
+
+.contact-FAQs .container .card{
+    padding: 2rem;
+}
+
+.card-body-contact{
+    margin: 5rem 0;
+    padding: 3rem;
+}
+
+
+#recipes{
+    width: 90%;
+    margin-top: 5rem;
+}
+
+.recipesImage{
+    padding-right: 2rem;
+}
+
+.recipeCard{
+    padding: 4rem;
+}

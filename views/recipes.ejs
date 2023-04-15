@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<div class="container">
+    <section id="recipes">
+    <% recipes.forEach(element => { %>
+            <div class="card mb-3 recipeCard" style="max-width: 70vw;">
+                <div class="row g-0">
+                    
+                <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="container">
+                            <h5 class="card-title"><%= element.title %></h5>
+                            <p class="card-text" style="width: 23%;">Ingredients: <br>
+                                <ul>
+                            <% const foundIngredients = element.ingredients.split(',') %>
+                            <% for( let i = 0; i < 5; i++ ) { %>
+                            <li><%= foundIngredients[i] %></li>
+                            <% } %>
+                        </ul>
+                        </p>
+                            <p class="card-text">
+                                <a href="/recipes/<%= element._id%>">Read More</a>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                    <% if (element.image) { %>
+                    <div class="col-md-4 text-center recipesImage">
+                        <img src="<%= element.imageLink %>" alt="Recipe Image" style="width:100%; margin-top: 10%;">
+                    </div>
+                    <% } %>
+                    </div>
+            </div>
+     <% }) %>
+    </section>
+</div>
+<%- include('partials/footer') %>
