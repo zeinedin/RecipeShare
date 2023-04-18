@@ -12,6 +12,7 @@ const flash = require("express-flash");
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(express.static("public"));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.use(session({
     secret: 'login upload',
     resave: false,
@@ -96,18 +97,13 @@ function(accessToken, refreshToken, profile, cb) {
 ));
 
 // configure multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./public/uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "Recipe",
   },
 });
-const upload = multer({ storage: storage, limits: { fileSize: 1024 * 1024 * 5 }});
+const upload = multer({ storage: storage});
 
 //configure cloudinary
 cloudinary.config({
@@ -225,23 +221,24 @@ app.post('/signin', async (req, res) => {
 
 app.post("/upload", upload.single("image"), async function (req, res) {
   try {
-    const resFile = await cloudinary.uploader.upload(req.file.path, {
-      public_id: req.body.title + "-" + Date.now()
-    });
-    console.log(resFile);
+    
+    const title = req.body.title;
+    const description = req.body.description;
+    const ingredients = req.body.ingredients;
+    const instructions = req.body.instructions;
+    const image = req.file.path;
+    
     const recipe = new Recipe({
-      title: req.body.title,
-      image: {
-        data: req.file.filename,
-        contentType: "image/png",
-      },
-      imageLink: resFile.secure_url,
-      description: req.body.description,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions,
-    });
-    await recipe.save();
-    console.log("Recipe added");
+      title: title,
+      imageLink: image,
+      description: description,
+      ingredients: ingredients,
+      instructions: instructions,
+    })
+    await recipe.save()
+    .then(()=>{
+      console.log("Recipe added");
+    })
     res.redirect('/sucess');
   } catch (err) {
     console.log(err);
